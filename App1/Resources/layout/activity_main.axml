@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="#ff9fa8da">
+	<Button
+		android:text="Encode"
+		android:layout_width="134.0dp"
+		android:layout_height="wrap_content"
+		android:id="@+id/btnEncode"
+		android:layout_marginLeft="125dp"
+		android:layout_marginTop="125dp"
+	/>
+	<Button
+		android:text="Decode"
+		android:layout_width="134.0dp"
+		android:layout_height="wrap_content"
+		android:id="@+id/btnDecode"
+		android:layout_marginLeft="125dp"
+		android:layout_marginTop="200dp"
+	/>
+	<Button
+		android:text="Keluar"
+		android:layout_width="134.0dp"
+		android:layout_height="wrap_content"
+		android:id="@+id/btnKeluar"
+		android:layout_marginLeft="125dp"
+		android:layout_marginTop="275dp"
+	/>
+	<TextView
+		android:id="@+id/textView1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Steganografi"
+		android:layout_marginLeft="125dp"
+		android:textSize="25dp"
+		android:layout_marginTop="10dp"
+		android:textColor="@android:color/background_dark" 
+		
+		/>
+</RelativeLayout>
