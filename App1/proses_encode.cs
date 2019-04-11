@@ -14,14 +14,14 @@ using Android.Widget;
 
 namespace App1
 {
-    [Activity(Label = "encode")]
-    public class encode : Activity
+    [Activity(Label = "proses_encode")]
+    public class proses_encode : Activity
     {
-        //int count = 1;
         ImageView imageView;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
 
             // Create your application here
             SetContentView(Resource.Layout.encode);
@@ -31,7 +31,6 @@ namespace App1
 
             btnCamera.Click += BtnCamera_click;
         }
-
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
