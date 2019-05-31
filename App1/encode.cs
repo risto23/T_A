@@ -18,6 +18,7 @@ namespace App1
     public class encode : Activity
     {
         //int count = 1;
+        public static readonly int PickImageId = 1000;
         ImageView imageView;
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,16 +28,34 @@ namespace App1
             SetContentView(Resource.Layout.encode);
 
             var btnCamera = FindViewById<Button>(Resource.Id.btnCamera);
+            var btnGaleri = FindViewById<Button>(Resource.Id.btnGaleri);
             imageView = FindViewById<ImageView>(Resource.Id.imageView);
 
             btnCamera.Click += BtnCamera_click;
+            btnGaleri.Click += BtnGaleri_Click;
+        }
+
+        private void BtnGaleri_Click(object sender, EventArgs e)
+        {
+            Intent = new Intent();
+            Intent.SetType("image/*");
+            Intent.SetAction(Intent.ActionGetContent);
+            StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), PickImageId);
         }
 
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
-            base.OnActivityResult(requestCode, resultCode, data);
-            Bitmap bitmap = (Bitmap)data.Extras.Get("data");
-            imageView.SetImageBitmap(bitmap);
+            if ((requestCode == PickImageId) && (resultCode == Result.Ok) && (data != null))
+            {
+                Android.Net.Uri uri = data.Data;
+                imageView.SetImageURI(uri);
+            }
+            else
+            {
+                base.OnActivityResult(requestCode, resultCode, data);
+                Bitmap bitmap = (Bitmap)data.Extras.Get("data");
+                imageView.SetImageBitmap(bitmap);
+            }
         }
 
         private void BtnCamera_click(object sender, EventArgs e)

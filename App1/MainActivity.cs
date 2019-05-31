@@ -17,11 +17,29 @@ namespace App1
             SetContentView(Resource.Layout.activity_main);
 
             var btnEncode = FindViewById<Button>(Resource.Id.btnEncode);
-            btnEncode.Click += (s, e) =>
-            {
-                Intent nextActivity = new Intent(this, typeof(encode));
-                StartActivity(nextActivity);
-            };
+            var btnDecode = FindViewById<Button>(Resource.Id.btnDecode);
+            var btnKeluar = FindViewById<Button>(Resource.Id.btnKeluar);
+            btnEncode.Click += BtnEncode_Click;
+            btnDecode.Click += BtnDecode_Click;
+            btnKeluar.Click += BtnKeluar_Click;
+
+        }
+
+        private void BtnKeluar_Click(object sender, System.EventArgs e)
+        {
+            Android.OS.Process.KillProcess(Android.OS.Process.MyPid());
+        }
+
+        private void BtnDecode_Click(object sender, System.EventArgs e)
+        {
+            Intent nextActivity = new Intent(this, typeof(decode));
+            StartActivity(nextActivity);
+        }
+
+        private void BtnEncode_Click(object sender, System.EventArgs e)
+        {
+            Intent nextActivity = new Intent(this, typeof(encode));
+            StartActivity(nextActivity);
         }
     }
 }
