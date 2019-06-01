@@ -20,6 +20,9 @@ namespace App1
         //int count = 1;
         public static readonly int PickImageId = 1000;
         ImageView imageView;
+        ImageView imageView1;
+
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
@@ -29,10 +32,44 @@ namespace App1
 
             var btnCamera = FindViewById<Button>(Resource.Id.btnCamera);
             var btnGaleri = FindViewById<Button>(Resource.Id.btnGaleri);
+            var btnProses = FindViewById<Button>(Resource.Id.btnProses);
             imageView = FindViewById<ImageView>(Resource.Id.imageView);
+            imageView1 = FindViewById<ImageView>(Resource.Id.imageView1);
 
             btnCamera.Click += BtnCamera_click;
-            btnGaleri.Click += BtnGaleri_Click;
+            
+            btnGaleri.Click += BtnGaleri1_Click;
+           
+            btnProses.Click += BtnProses_Click;
+
+
+        }
+
+        private void BtnGaleri1_Click(object sender, EventArgs e)
+        {
+            Intent = new Intent();
+            Intent.SetType("image/*");
+            Intent.SetAction(Intent.ActionGetContent);
+            StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), PickImageId);
+        }
+
+        private void BtnCamera1_Click(object sender, EventArgs e)
+        {
+            Intent intent = new Intent(MediaStore.ActionImageCapture);
+            StartActivityForResult(intent, 0);
+        }
+
+        private void BtnProses_Click(object sender, EventArgs e)
+        {
+            if (imageView.GetDrawableState() == null)
+            {
+               //Kosong
+
+            }
+            else
+            {
+                
+            }
         }
 
         private void BtnGaleri_Click(object sender, EventArgs e)
@@ -48,7 +85,7 @@ namespace App1
             if ((requestCode == PickImageId) && (resultCode == Result.Ok) && (data != null))
             {
                 Android.Net.Uri uri = data.Data;
-                imageView.SetImageURI(uri);
+                imageView1.SetImageURI(uri);
             }
             else
             {
@@ -56,7 +93,9 @@ namespace App1
                 Bitmap bitmap = (Bitmap)data.Extras.Get("data");
                 imageView.SetImageBitmap(bitmap);
             }
+            
         }
+
 
         private void BtnCamera_click(object sender, EventArgs e)
         {

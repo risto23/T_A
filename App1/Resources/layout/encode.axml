@@ -10,26 +10,60 @@
 	android:minHeight="25px">
 	<ImageView
 		android:src="@android:drawable/ic_menu_gallery"
-		android:layout_width="393.5dp"
-		android:layout_height="300dp"
-		android:layout_marginTop="10dp"
-		android:id="@+id/imageView" />
+		android:layout_width="150dp"
+		android:layout_height="150dp"
+		android:layout_marginTop="40dp"
+		android:id="@+id/imageView"
+		android:layout_marginBottom="0.0dp" />
 	<Button
 		android:text="Kamera"
 		android:layout_width="134.0dp"
 		android:layout_height="wrap_content"
 		android:id="@+id/btnCamera"
-		android:layout_marginLeft="25dp"
-		android:layout_marginTop="360dp"
+		android:layout_marginLeft="175dp"
+		android:layout_marginTop="75dp"
+	/>
+	
+	<ImageView
+		android:src="@android:drawable/ic_menu_gallery"
+		android:layout_width="150dp"
+		android:layout_height="150dp"
+		android:layout_marginTop="250dp"
+		android:id="@+id/imageView1"
+		android:layout_marginBottom="0.0dp" />
+	
 	/>
 	<Button
 		android:text="Galeri"
 		android:layout_width="134.0dp"
 		android:layout_height="wrap_content"
 		android:id="@+id/btnGaleri"
-		android:layout_marginLeft="200dp"
-		android:layout_marginTop="360dp"
+		android:layout_marginLeft="175dp"
+		android:layout_marginTop="320dp"
 	/>
+	<Button
+		android:text="Proses"
+		android:layout_width="200.0dp"
+		android:layout_height="wrap_content"
+		android:id="@+id/btnProses"
+		android:layout_marginLeft="90dp"
+		android:layout_marginTop="520dp"
+		
+	/>
+	<TextView
+		android:text="Gambar Cover"
+		android:layout_width="200.0dp"
+		android:layout_height="wrap_content"
+		android:id="@+id/txtket"
+		android:layout_marginLeft="10dp"
+		android:layout_marginTop="10dp"/>
+	<TextView
+		android:text="Gambar Yang Ingin Disembunyikan"
+		android:layout_width="200.0dp"
+		android:layout_height="wrap_content"
+		android:id="@+id/txtket1"
+		android:layout_marginLeft="10dp"
+		android:layout_marginTop="210dp"/>
 	
 	
 	

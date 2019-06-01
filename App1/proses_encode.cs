@@ -17,6 +17,7 @@ namespace App1
     [Activity(Label = "proses_encode")]
     public class proses_encode : Activity
     {
+        public static readonly int PickImageId = 1000;
         ImageView imageView;
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -27,10 +28,21 @@ namespace App1
             SetContentView(Resource.Layout.encode);
 
             var btnCamera = FindViewById<Button>(Resource.Id.btnCamera);
+            var btnGaleri = FindViewById<Button>(Resource.Id.btnGaleri);
             imageView = FindViewById<ImageView>(Resource.Id.imageView);
 
             btnCamera.Click += BtnCamera_click;
+            btnGaleri.Click += BtnGaleri_Click;
         }
+
+        private void BtnGaleri_Click(object sender, EventArgs e)
+        {
+            Intent = new Intent();
+            Intent.SetType("image/*");
+            Intent.SetAction(Intent.ActionGetContent);
+            StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), PickImageId);
+        }
+
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
